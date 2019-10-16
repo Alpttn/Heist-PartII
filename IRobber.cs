@@ -9,6 +9,5 @@ namespace HeistPartTwo
 
         void PerformSkill(Bank bank);
        
-        
     }
 }
