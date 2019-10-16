@@ -20,6 +20,10 @@ namespace HeistPartTwo
 
         public void PerformSkill(Bank bank) {
            bank.AlarmScore = bank.AlarmScore - SkillLevel; 
+           Console.WriteLine($"{Name} is hacking the alarm system. Decreased security by 50 points");
+           if (bank.VaultScore <= 0) {
+                Console.WriteLine($"{Name} has disabled the alarm!");
+            }
         }
     }
 }

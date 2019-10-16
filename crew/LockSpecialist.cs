@@ -20,6 +20,10 @@ namespace HeistPartTwo
         public void PerformSkill(Bank bank)
         {
             bank.VaultScore = bank.VaultScore - SkillLevel;
+            Console.WriteLine($"{Name} is picking the vault lock. Decreased security by 50 points");
+            if (bank.VaultScore <= 0) {
+                Console.WriteLine($"{Name} has picked the vault lock!");
+            }
         }
     }
 }
