@@ -22,6 +22,15 @@ namespace HeistPartTwo
             rolodex.Add(lockSpecialist1);   
             rolodex.Add(lockSpecialist2);   
 
+            //start the program
+            Console.WriteLine($"There are {rolodex.Count} operatives in the rolodex");
+            Console.Write("New Crew Member> ");
+            string newCrewMember = Console.ReadLine();
+
+            while (newCrewMember != "") //when no name is entered its false
+            {
+                
+            }
         }
     }
 }
