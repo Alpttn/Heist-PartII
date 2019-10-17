@@ -19,8 +19,8 @@ namespace HeistPartTwo
             rolodex.Add(hacker2);
             rolodex.Add(muscle1);
             rolodex.Add(muscle2);
-            rolodex.Add(lockSpecialist1);   
-            rolodex.Add(lockSpecialist2);   
+            rolodex.Add(lockSpecialist1);
+            rolodex.Add(lockSpecialist2);
 
             //start the program
             Console.WriteLine($"There are {rolodex.Count} operatives in the rolodex");
@@ -29,8 +29,33 @@ namespace HeistPartTwo
 
             while (newCrewMember != "") //when no name is entered its false
             {
-                
+                Console.WriteLine("Choose a specialty for your crew member");
+                Console.WriteLine("Hacker (Disables alarms)");
+                Console.WriteLine("Muscle (Disarms guards)");
+                Console.WriteLine("Hacker (Cracks vault)");
+                Console.Write("Specialty> ");
+                string specialty = Console.ReadLine();
+                Console.WriteLine("Enter a number between 1-100 to give your crew member a skill level");
+                Console.Write("Skill Level> ");
+                int skillLevel = int.Parse(Console.ReadLine());
+                Console.WriteLine("Get paid to raid! Enter what percent of the cut your robber wants");
+                Console.Write("Percentage Cut> ");
+                int percentageCut = int.Parse(Console.ReadLine());
+
+                if (specialty == "Hacker")
+                {
+                    rolodex.Add(new Hacker(newCrewMember, skillLevel, percentageCut));
+                } 
+                if (specialty == "Muscle") 
+                {
+                    rolodex.Add(new Muscle(newCrewMember, skillLevel, percentageCut));
+                }
+                if (specialty == "LockSpecialist") 
+                {
+                    rolodex.Add(new LockSpecialist(newCrewMember, skillLevel, percentageCut));
+                }
             }
         }
     }
 }
+
