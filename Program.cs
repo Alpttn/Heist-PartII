@@ -32,7 +32,7 @@ namespace HeistPartTwo
                 Console.WriteLine("Choose a specialty for your crew member");
                 Console.WriteLine("Hacker (Disables alarms)");
                 Console.WriteLine("Muscle (Disarms guards)");
-                Console.WriteLine("Hacker (Cracks vault)");
+                Console.WriteLine("Lock Specialist (Cracks vault)");
                 Console.Write("Specialty> ");
                 string specialty = Console.ReadLine();
                 Console.WriteLine("Enter a number between 1-100 to give your crew member a skill level");
@@ -54,7 +54,20 @@ namespace HeistPartTwo
                 {
                     rolodex.Add(new LockSpecialist(newCrewMember, skillLevel, percentageCut));
                 }
+                Console.WriteLine();
+                Console.Write("New crew member> ");
+                newCrewMember = Console.ReadLine();
             }
+
+            Bank bank = new Bank() {
+                AlarmScore = 30,
+                VaultScore = 50,
+                SecurityGuardScore = 60,
+                CashOnHand = 55_000
+            };
+
+            Console.WriteLine($"The bank's most secure system is the {bank.StrongestSystem} system");
+            Console.WriteLine($"The bank's least secure system is the {bank.WeakestSystem} system");
         }
     }
 }
