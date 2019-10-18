@@ -9,6 +9,7 @@ namespace HeistPartTwo
 
         public int SkillLevel { get; set; }
         public int PercentageCut { get; set; }
+        public string Speciality { get; } = "Muscle";
         public Muscle(string name, int skillLevel, int percentageCut)
         {
             Name = name;

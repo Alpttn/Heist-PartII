@@ -68,6 +68,12 @@ namespace HeistPartTwo
 
             Console.WriteLine($"The bank's most secure system is the {bank.StrongestSystem} system");
             Console.WriteLine($"The bank's least secure system is the {bank.WeakestSystem} system");
+            Console.WriteLine();
+            Console.WriteLine("Here's your team:");
+            foreach (IRobber robber in rolodex) 
+            {
+                Console.WriteLine($"Name: {robber.Name}, Speciality: {robber.Speciality}, Skill Level {robber.SkillLevel}, Percentage cut: {robber.PercentageCut}");
+            }
         }
     }
 }
