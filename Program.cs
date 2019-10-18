@@ -45,12 +45,12 @@ namespace HeistPartTwo
                 if (specialty == "Hacker")
                 {
                     rolodex.Add(new Hacker(newCrewMember, skillLevel, percentageCut));
-                } 
-                if (specialty == "Muscle") 
+                }
+                if (specialty == "Muscle")
                 {
                     rolodex.Add(new Muscle(newCrewMember, skillLevel, percentageCut));
                 }
-                if (specialty == "LockSpecialist") 
+                if (specialty == "LockSpecialist")
                 {
                     rolodex.Add(new LockSpecialist(newCrewMember, skillLevel, percentageCut));
                 }
@@ -59,7 +59,8 @@ namespace HeistPartTwo
                 newCrewMember = Console.ReadLine();
             }
 
-            Bank bank = new Bank() {
+            Bank bank = new Bank()
+            {
                 AlarmScore = 30,
                 VaultScore = 50,
                 SecurityGuardScore = 60,
@@ -70,10 +71,18 @@ namespace HeistPartTwo
             Console.WriteLine($"The bank's least secure system is the {bank.WeakestSystem} system");
             Console.WriteLine();
             Console.WriteLine("Here's your team:");
-            foreach (IRobber robber in rolodex) 
+            int index = 0;
+            foreach (IRobber robber in rolodex)
             {
-                Console.WriteLine($"Name: {robber.Name}, Speciality: {robber.Speciality}, Skill Level {robber.SkillLevel}, Percentage cut: {robber.PercentageCut}");
+                index++;
+                Console.WriteLine($"Index: {rolodex.IndexOf(robber) + 1} Name: {robber.Name}, Speciality: {robber.Speciality}, Skill Level {robber.SkillLevel}, Percentage cut: {robber.PercentageCut}");
             }
+
+            List<IRobber> crew = new List<IRobber>();
+            Console.WriteLine();
+            Console.Write("Enter the index # of the robber you'd like on your team> ");
+            string robberToAddToCrew = Console.ReadLine(); //user enters in a number and I store that string into a variable
+            crew.Add(rolodex[int.Parse(robberToAddToCrew) - 1]); //I need to add it to the list but convert it to a number
         }
     }
 }
