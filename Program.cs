@@ -71,18 +71,39 @@ namespace HeistPartTwo
             Console.WriteLine($"The bank's least secure system is the {bank.WeakestSystem} system");
             Console.WriteLine();
             Console.WriteLine("Here's your team:");
-            int index = 0;
+            
             foreach (IRobber robber in rolodex)
             {
-                index++;
+                
                 Console.WriteLine($"Index: {rolodex.IndexOf(robber) + 1} Name: {robber.Name}, Speciality: {robber.Speciality}, Skill Level {robber.SkillLevel}, Percentage cut: {robber.PercentageCut}");
             }
 
             List<IRobber> crew = new List<IRobber>();
             Console.WriteLine();
-            Console.Write("Enter the index # of the robber you'd like on your team> ");
-            string robberToAddToCrew = Console.ReadLine(); //user enters in a number and I store that string into a variable
-            crew.Add(rolodex[int.Parse(robberToAddToCrew) - 1]); //I need to add it to the list but convert it to a number
+            // string robberToAddToCrew = Console.ReadLine(); //user enters in a number and I store that string into a variable
+
+            string robberToAddToCrew = "0";
+
+            while (robberToAddToCrew != "")
+            {
+                if (crew.Count < rolodex.Count)
+                {
+                    Console.WriteLine("Enter the index # of the robber you'd like on your team>");
+                    robberToAddToCrew = Console.ReadLine();
+                    crew.Add(rolodex[int.Parse(robberToAddToCrew) - 1]); //I need to add it to the list but convert it to a number
+                }
+                else
+                {
+                    Console.WriteLine("You've entered everyone from the rolodex");
+                    robberToAddToCrew = "";
+                }
+            }
+            Console.WriteLine("Your crew is ready for the heist");
+
+
+
+
+
         }
     }
 }
